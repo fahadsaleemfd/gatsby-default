@@ -7,8 +7,18 @@ export const GridContainer = styled.div`
   grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: 2rem;
   background-image: linear-gradient(to right, #96c3e8, #002f5f);
-  padding: 8rem 40rem;
+  max-width:1000px;
+  margin:0 auto;
+
+  @media (max-width: 960px) {
+    display:flex
+flex-direction:column;
+  }
+
+
   @media (max-width: 56.25em) {
+    display:flex;
+    flex-direction:column;
     grid-template-columns: 1fr;
   }
 `

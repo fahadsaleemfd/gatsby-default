@@ -16,14 +16,15 @@ const IndexPage = () => {
   return (
     <ModalProvider>
       <Layout>
+     
         <Navigation />
         <Header />
         <SectionCampaign setSelectedTitle={setSelectedTitle} />
-        <SectionFeatures setSelectedTitle={setSelectedTitle} />
+        {/* <SectionFeatures setSelectedTitle={setSelectedTitle} />
         <SectionAbout />
         <SectionStories />
         <SectionBook selectedTitle={selectedTitle} />
-        <Footer />
+        <Footer /> */}
       </Layout>
     </ModalProvider>
   )
