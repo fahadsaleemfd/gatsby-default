@@ -9,7 +9,7 @@ export const StyledAboutSection = styled.section`
   color: white;
 
   @media only screen and (max-width: 56.25em) {
-    padding: 20rem 0;
+  
   }
 `
 
@@ -27,13 +27,16 @@ export const AboutGrid = styled.div`
   @media only screen and (max-width: 56.25em) {
     grid-template-columns: 1fr;
     padding: 20rem 0;
+    display:flex;
+    flex-direction:column;
+    padding:20px;
   }
 `
 
 // Content Wrapper for Text Elements on the Left
 export const ContentWrapper = styled.div`
   grid-column: 1;
-  padding-left: 8rem;
+   padding-left: 8rem;
 
   h3 {
     font-size: 1.6rem;
@@ -49,6 +52,14 @@ export const ContentWrapper = styled.div`
       margin-bottom: 3rem;
     }
   }
+  @media only screen and (max-width: 56.25em) {
+    padding-left: 0rem;
+    text-align:center;
+    p{
+      text-align:center;
+    }
+  }
+
 `
 // Base image styles for photos
 export const Image = styled.div`
@@ -96,7 +107,7 @@ export const Image = styled.div`
   }
 
   @media only screen and (max-width: 56.25em) {
-    width: 33.33333333%;
+    width: 100%;
     box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
 
     &:nth-child(1),
@@ -120,6 +131,12 @@ export const Composition = styled.div`
 
   &:hover ${Image}:not(:hover) {
     transform: scale(0.95);
+  }
+
+  @media only screen and (max-width: 56.25em) {
+   display:flex;
+   flex-direction:column;
+
   }
 `
 

@@ -53,6 +53,12 @@ export const PopupContainer = styled.div`
   grid-template-columns: 1fr 2fr auto;
   grid-template-rows: auto 1fr auto;
   /* gap: 1rem; */
+  @media (max-width: 960px) {
+    display:flex;
+    flex-direction:column-reverse;
+  }
+
+
 `
 
 // Styled left column for images with grid areas
