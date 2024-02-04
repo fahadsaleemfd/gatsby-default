@@ -4,7 +4,7 @@ export const MainContainer = styled.div`
   transform: skewY(-7deg);
   padding: 5rem;
   position: relative;
-  /* background-image: linear-gradient(to right, #96c3e8, #002f5f); */
+   background-image: linear-gradient(to right, #96c3e8, #002f5f); 
   border-top: 1px solid white;
   overflow: hidden;
   border-bottom: 1px solid white;

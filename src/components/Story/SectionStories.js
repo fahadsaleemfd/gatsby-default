@@ -59,8 +59,7 @@ const SectionStories = () => {
           muted
           loop
           onLoadedData={() => console.log('Stories Video Loaded')}
-          onError={() => console.log('Stories Video Failed to Load')}
-        >
+          onError={() => console.log('Stories Video Failed to Load')}        >
           <source
             src={videoUrl}
             type='video/mp4'

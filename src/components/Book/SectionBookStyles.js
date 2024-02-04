@@ -73,6 +73,9 @@ export const BgVideoContent = styled.video`
   height: 100%;
   width: 100%;
   object-fit: cover;
+  @media only screen and (max-width: 56.25em) {
+    display:none;
+  }
 `
 export const RadioButtonLabel = styled.label`
   display: flex;

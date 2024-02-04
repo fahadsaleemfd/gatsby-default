@@ -79,6 +79,7 @@ const SectionFeatures = ({ setSelectedTitle }) => {
   return (
     <MainContainer id='section-services'>
       <img
+      className='hidden md:block'
         src={data.strapiServiceimage.image.localFile.publicURL}
         alt='Background Image'
         style={{
