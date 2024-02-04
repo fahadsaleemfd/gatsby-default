@@ -56,6 +56,8 @@ export const PopupContainer = styled.div`
   @media (max-width: 960px) {
     display:flex;
     flex-direction:column-reverse;
+    height:500px;
+    overflow:scroll;
   }
 
 

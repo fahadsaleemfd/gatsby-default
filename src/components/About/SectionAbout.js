@@ -65,22 +65,23 @@ const SectionAbout = () => {
           </SectionAboutButton>
         </ContentWrapper>
         <Composition>
-          <Image>
-            <img
+         
+          <Image >
+            <img className="hidden md:block"
               as={StaticImage}
               src={aboutImages[0] || '../../images/skitrent-1-large.png'}
               alt=''
             />
           </Image>
           <Image>
-            <img
+            <img className="hidden md:block"
               as={StaticImage}
               src={aboutImages[2] || '../../images/skitrent-1-large.png'}
               alt=''
             />
           </Image>
           <Image>
-            <img
+            <img className="hidden md:block"
               as={StaticImage}
               src={aboutImages[1] || '../../images/skitrent-1-large.png'}
               alt=''
