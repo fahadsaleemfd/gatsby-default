@@ -99,7 +99,7 @@ const SectionFeatures = ({ setSelectedTitle }) => {
           <FeatureHeadingSecondary>VÅRA Tjänster</FeatureHeadingSecondary>
         </UMarginBottomBig>
       </UCenterText>
-      <CardsContainer>{featureBoxes}</CardsContainer>
+      <CardsContainer >{featureBoxes}</CardsContainer>
     </MainContainer>
   )
 }

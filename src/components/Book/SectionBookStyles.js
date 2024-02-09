@@ -22,7 +22,7 @@ export const FormContainer = styled.div`
   -webkit-backdrop-filter: blur(30px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   color: #fff;
-  
+ 
   @media only screen and (max-width: 56.25em) {
     padding:0px;
     flex:0 0 100%;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const MainContainer = styled.div`
-
+margin-top:30px;
   transform: skewY(-7deg);
    padding: 5rem;
   position: relative;
@@ -10,9 +10,9 @@ export const MainContainer = styled.div`
   overflow: hidden;
   border-bottom: 1px solid white;
    padding-bottom: 20rem;
-  & > * {
-    transform: skewY(7deg); // Counteract the main container's skew
-  }
+  // & > * {
+  //   transform: skewY(7deg); // Counteract the main container's skew
+  // }
 `
 
 export const Heading = styled.h1`
@@ -24,7 +24,7 @@ export const CardsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr); // Define 4 columns
   gap: 2rem; // Spacing between cards
-
+  transform: skewY(7deg);
   @media (max-width: 56.25em) {
     grid-template-columns: 1fr; // On mobile, one card per row
   }
