@@ -13,6 +13,11 @@ margin-top:30px;
   // & > * {
   //   transform: skewY(7deg); // Counteract the main container's skew
   // }
+  @media (max-width: 56.25em) {
+    border-top: 0px;
+    border-bottom:0px;
+  }
+
 `
 
 export const Heading = styled.h1`
