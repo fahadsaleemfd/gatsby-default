@@ -25,7 +25,8 @@ export const FormContainer = styled.div`
   
   @media only screen and (max-width: 56.25em) {
     padding:0px;
-    flex:0 0 100%
+    flex:0 0 100%;
+    margin:0 auto;
   }
 
 `

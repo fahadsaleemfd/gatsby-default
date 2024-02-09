@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
 export const MainContainer = styled.div`
+
   transform: skewY(-7deg);
-  padding: 5rem;
+   padding: 5rem;
   position: relative;
    background-image: linear-gradient(to right, #96c3e8, #002f5f); 
   border-top: 1px solid white;
   overflow: hidden;
   border-bottom: 1px solid white;
-  padding-bottom: 20rem;
+   padding-bottom: 20rem;
   & > * {
     transform: skewY(7deg); // Counteract the main container's skew
   }

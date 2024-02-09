@@ -6,7 +6,6 @@ export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: 2rem;
-  background-image: linear-gradient(to right, #96c3e8, #002f5f);
   max-width:1000px;
   margin:0 auto;
 

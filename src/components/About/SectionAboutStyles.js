@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const StyledAboutSection = styled.section`
   background-color: #f7f7f7;
-  padding: 10rem 0;
-  /* margin-top: -10vh; */
+  // padding: 10rem 0;
+  padding-top::10rem;
   background-image: linear-gradient(to right, #96c3e8, #002f5f);
   /* border-top: 1px solid white; */
   color: white;

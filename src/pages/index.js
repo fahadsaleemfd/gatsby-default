@@ -18,13 +18,20 @@ const IndexPage = () => {
       <Layout>
      
         <Navigation />
+       
+
+       
         <Header />
-        <SectionCampaign setSelectedTitle={setSelectedTitle} />
-        <SectionFeatures setSelectedTitle={setSelectedTitle} />
-        <SectionAbout />
-        <SectionStories />
+        <div className='flex gap-40 flex-col'>
+          <SectionCampaign setSelectedTitle={setSelectedTitle} />
+          <SectionFeatures setSelectedTitle={setSelectedTitle} />
+          <SectionAbout /> 
+          </div>
+          <SectionStories /> 
+        
         <SectionBook selectedTitle={selectedTitle} />
         <Footer />
+      
       </Layout>
     </ModalProvider>
   )

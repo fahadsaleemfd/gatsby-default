@@ -108,7 +108,7 @@ const SectionCampaign = ({ setSelectedTitle }) => {
   }
 
   return (
-    <GridContainer id='section-campaigns' className='mt-16'>
+    <GridContainer id='section-campaigns'>
       <HeadingSecondary>Våra kampanjer</HeadingSecondary>
       {data.allStrapiCampaign.edges.map((edge, index) => {
         const { node } = edge
