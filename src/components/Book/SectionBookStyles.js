@@ -4,13 +4,13 @@ export const Container = styled.div`
   display: flex;
   max-width: 100%;
   height: 782px; /* Adjusted height for additional content */
-
+padding:10px;
   background-size: cover;
 `
 
 export const FormContainer = styled.div`
   flex: 0 0 50%;
-  padding: 18rem;
+  padding: 16rem;
   background-color: rgba(255, 255, 255, 0.8);
   clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
   display: flex;
