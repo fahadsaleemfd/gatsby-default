@@ -46,7 +46,10 @@ const SectionAbout = () => {
   const htmlContent = content.data.childMarkdownRemark.html
 
   const SectionAboutButton = styled(ButtonStyles)`
-    margin-left: 8rem;
+     margin-left: 8rem;
+     @media only screen and (max-width: 56.25em) {
+      margin-left: 2rem;
+    }
   `
 
   return (

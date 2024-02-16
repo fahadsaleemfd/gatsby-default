@@ -6,6 +6,9 @@ export const Container = styled.div`
   height: 782px; /* Adjusted height for additional content */
 padding:10px;
   background-size: cover;
+  @media only screen and (max-width: 56.25em) {
+    height:auto;
+  }
 `
 
 export const FormContainer = styled.div`
@@ -27,6 +30,7 @@ export const FormContainer = styled.div`
     padding:0px;
     flex:0 0 100%;
     margin:0 auto;
+    border:0px;
   }
 
 `
@@ -56,7 +60,7 @@ export const SectionBookContainer = styled.section`
   height: 100%;
 
   @media only screen and (max-width: 56.25em) {
-    padding: 10rem 0;
+    padding: 2rem 0;
   }
 `
 

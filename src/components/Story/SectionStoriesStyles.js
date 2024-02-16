@@ -4,10 +4,9 @@ export const SectionStoriesContainer = styled.section`
   position: relative;
   padding: 15rem 0;
   margin-top: -10rem;
-  margin-bottom: 8rem;
 
   @media only screen and (max-width: 56.25em) {
-    padding: 10rem 0;
+    padding: 2rem 0;
   }
 `
 
