@@ -7,6 +7,7 @@ export const StyledAboutSection = styled.section`
   background-image: linear-gradient(to right, #96c3e8, #002f5f);
   /* border-top: 1px solid white; */
   color: white;
+  margin-top:90px;
 
   @media only screen and (max-width: 56.25em) {
   margin-top:30px;
