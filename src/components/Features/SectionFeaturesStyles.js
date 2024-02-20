@@ -17,6 +17,7 @@ margin-top:30px;
     border-top: 0px;
     border-bottom:0px;
     padding-bottom: 2rem;
+    margin:0 auto;
   }
 
 `
@@ -48,6 +49,9 @@ export const Card = styled.div`
 
   &:hover {
     transform: translateY(-1.5rem) scale(1.03);
+  }
+  @media (max-width: 56.25em) {
+   margin:00 auto;
   }
 `
 

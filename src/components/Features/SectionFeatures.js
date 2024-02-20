@@ -12,6 +12,7 @@ import {
 import { HeadingTertiary, HeadingSecondary } from '../styles/HeadingStyles'
 import { UMarginBottomSmall, UMarginBottomBig } from '../styles/UMarginsStyles'
 import ButtonStyles from '../styles/ButtonStyles'
+import { StoryH2 } from '../Story/SectionStoriesStyles'
 
 const SectionFeatures = ({ setSelectedTitle }) => {
   const data = useStaticQuery(graphql`
@@ -46,7 +47,7 @@ const SectionFeatures = ({ setSelectedTitle }) => {
   `
   const FeatureHeadingSecondary = styled(HeadingSecondary)`
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+    // background-color: rgba(255, 255, 255, 0.1);
 
     &:hover {
       transform: none; // cancels any transformation on hover
@@ -97,7 +98,7 @@ const SectionFeatures = ({ setSelectedTitle }) => {
       <UCenterText>
         <div style={{transform: "skewY(7deg)"}}>
         <UMarginBottomBig>
-          <FeatureHeadingSecondary>VÅRA Tjänster</FeatureHeadingSecondary>
+          <FeatureHeadingSecondary><StoryH2>VÅRA Tjänster</StoryH2></FeatureHeadingSecondary>
         </UMarginBottomBig>
         </div>
       

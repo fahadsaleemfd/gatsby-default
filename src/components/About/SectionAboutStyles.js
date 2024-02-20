@@ -148,16 +148,12 @@ export const AboutH2 = styled.h2`
   font-weight: 700;
   display: inline-block;
   color: #ffffff; // White font color
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
+
   ); // Semi-transparent white background
 
   padding: 0.2rem 0.5rem;
   border-radius: 5px;
-  backdrop-filter: blur(10px); // Adding the blur effect
+  // Adding the blur effect
   border: 1px solid rgba(255, 255, 255, 0.2); // Subtle border for reflective edge
   text-shadow: 2px 2px 3px ${(props) => props.theme.colors.scrumhrBlue}; // Text shadow using scrumhrBlue
 `
