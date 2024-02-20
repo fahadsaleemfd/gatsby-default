@@ -15,18 +15,21 @@ export const FormContainer = styled.div`
   flex: 0 0 50%;
   padding: 16rem;
   background-color: rgba(255, 255, 255, 0.8);
-  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+   clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(30px);
+   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   color: #fff;
  
   @media only screen and (max-width: 56.25em) {
+    clip-path:unset;
+    box-shadow: unset;
+    backdrop-filter: unset;
     padding:0px;
     flex:0 0 100%;
     margin:0 auto;

@@ -54,11 +54,15 @@ export const PopupContainer = styled.div`
   grid-template-rows: auto 1fr auto;
   /* gap: 1rem; */
   @media (max-width: 960px) {
-    display:flex;
+   
+  }
+
+  @media only screen and (max-width: 56.25em) {
+     display:flex;
     flex-direction:column-reverse;
     height:500px;
     overflow:scroll;
-  }
+    }
 
 
 `
@@ -76,7 +80,10 @@ export const ImageContainer = styled.img`
   display: block; // This ensures that the image behaves like a block-level element
   object-fit: cover; // This will cover the area without changing the aspect ratio
   // If you want no gap at all, ensure that the images are the same height or the container flex is set to stretch
-`
+  @media only screen and (max-width: 56.25em) {
+  display:none
+    }
+  `
 
 // Styled right column for text with grid areas
 export const RightColumn = styled.div`
@@ -120,6 +127,10 @@ export const ContentContainer = styled.div`
     font-size: 1.6rem;
     margin-bottom: 1rem;
   }
+  @media only screen and (max-width: 56.25em) {
+    display:flex;
+    flex-direction:column;
+    }
 `
 
 export const GridButton = styled(ButtonStyles)`

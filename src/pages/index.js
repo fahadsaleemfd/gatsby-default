@@ -18,15 +18,12 @@ const IndexPage = () => {
       <Layout>
      
         <Navigation />
-       
-
-       
         <Header />
-        <div className='flex gap-40 flex-col'>
+      
           <SectionCampaign setSelectedTitle={setSelectedTitle} />
           <SectionFeatures setSelectedTitle={setSelectedTitle} />
           <SectionAbout /> 
-          </div>
+          
           <SectionStories /> 
         
         <SectionBook selectedTitle={selectedTitle} />

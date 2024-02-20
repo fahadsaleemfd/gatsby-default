@@ -95,9 +95,12 @@ const SectionFeatures = ({ setSelectedTitle }) => {
       />
 
       <UCenterText>
+        <div style={{transform: "skewY(7deg)"}}>
         <UMarginBottomBig>
           <FeatureHeadingSecondary>VÅRA Tjänster</FeatureHeadingSecondary>
         </UMarginBottomBig>
+        </div>
+      
       </UCenterText>
       <CardsContainer >{featureBoxes}</CardsContainer>
     </MainContainer>

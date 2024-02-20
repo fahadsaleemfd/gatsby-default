@@ -110,7 +110,7 @@ export const Background = styled.div`
 
 export const Nav = styled.nav`
   height: 100vh;
-
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1500;
@@ -121,12 +121,12 @@ export const Nav = styled.nav`
 
 export const List = styled.ul`
   position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   list-style: none;
   text-align: center;
-  // width: 100%;
+  width: 100%;
 `
 
 export const Item = styled.li`
@@ -134,21 +134,21 @@ export const Item = styled.li`
 `
 
 export const StyledLink = styled.a`
-  // display: inline-block;
-  // font-size: 3rem;
-  // font-weight: 300;
-  // padding: 1rem 2rem;
-  // color: #fff;
-  // text-decoration: none;
-  // text-transform: uppercase;
-  // background-image: linear-gradient(
-  //   120deg,
-  //   transparent 0%,
-  //   transparent 50%,
-  //   #fff 50%
-  // );
-  // background-size: 220%;
-  // transition: all 0.4s;
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 50%,
+    #fff 50%
+  );
+  background-size: 220%;
+  transition: all 0.4s;
   &:hover,
   &:active {
     background-position: 100%;

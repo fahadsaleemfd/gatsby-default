@@ -16,6 +16,7 @@ margin-top:30px;
   @media (max-width: 56.25em) {
     border-top: 0px;
     border-bottom:0px;
+    padding-bottom: 2rem;
   }
 
 `

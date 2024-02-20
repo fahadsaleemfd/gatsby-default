@@ -9,7 +9,7 @@ export const StyledAboutSection = styled.section`
   color: white;
 
   @media only screen and (max-width: 56.25em) {
-  
+  margin-top:30px;
   }
 `
 

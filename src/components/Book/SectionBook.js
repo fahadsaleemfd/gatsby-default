@@ -76,7 +76,7 @@ const SectionBook = ({ selectedTitle }) => {
         <FormContainer>
           <BookH2>Kontakta oss</BookH2>
           <form
-          className='lg:-mt-40 -mt-10 ml-16'
+          className='p-10'
             method='post'
             action='http://www.skitrent.se/cgi-bin/FormMail.pl'
             acceptCharset='ISO-8859-1'
