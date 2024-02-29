@@ -32,8 +32,10 @@ export const CardsContainer = styled.div`
   grid-template-columns: repeat(4, 1fr); // Define 4 columns
   gap: 2rem; // Spacing between cards
   transform: skewY(7deg);
+
   @media (max-width: 56.25em) {
     grid-template-columns: 1fr; // On mobile, one card per row
+    margin-bottom:30px;
   }
 `
 
@@ -41,7 +43,7 @@ export const Card = styled.div`
   background: white;
   border-radius: 10px;
   overflow: hidden;
-  max-width: 350px;
+  maz-width:350px;
   padding: 25px 30px;
   transition: transform 0.3s;
   display: grid; /* Added */
@@ -51,8 +53,18 @@ export const Card = styled.div`
     transform: translateY(-1.5rem) scale(1.03);
   }
   @media (max-width: 56.25em) {
-   margin:00 auto;
+   margin:0 auto;
+   max-width:270px;
+
   }
+  @media (min-width: 400px) and (max-width: 900px) {
+    min-width: 350px;
+  }
+  @media (min-width: 400px) and (max-width: 900px) {
+    min-width: 350px;
+  }
+  
+
 `
 
 export const CardHeading = styled.h2`
