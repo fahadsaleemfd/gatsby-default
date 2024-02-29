@@ -23,11 +23,13 @@ const IndexPage = () => {
           <SectionCampaign setSelectedTitle={setSelectedTitle} />
           <SectionFeatures setSelectedTitle={setSelectedTitle} />
           <SectionAbout /> 
-          
+          <div className='flex flex-col lg:gap-40 gap-0'>
           <SectionStories /> 
-        
+      
         <SectionBook selectedTitle={selectedTitle} />
-        <Footer />
+       
+       
+        <Footer /> </div>
       
       </Layout>
     </ModalProvider>
