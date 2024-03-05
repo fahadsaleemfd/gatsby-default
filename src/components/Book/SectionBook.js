@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import React, { useState, useEffect } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
 import {
   SectionBookContainer,
@@ -13,9 +13,10 @@ import {
   RadioButtonInput,
   FormInput,
   FormTextArea,
-} from './SectionBookStyles'
+} from "./SectionBookStyles";
 
-import ButtonStyles from '../styles/ButtonStyles'
+import ButtonStyles from "../styles/ButtonStyles";
+import axios from 'axios'
 
 const SectionBook = ({ selectedTitle }) => {
   const data = useStaticQuery(graphql`
@@ -33,42 +34,71 @@ const SectionBook = ({ selectedTitle }) => {
         }
       }
     }
-  `)
+  `);
 
   // Initialize a state variable to store the selected radio button value
-  const [selectedOption, setSelectedOption] = useState(selectedTitle)
-
+  const [selectedOption, setSelectedOption] = useState(selectedTitle);
+  const [sucessMessage,setSuccessMessage] = useState("Your Request has been submitted")
+  const [isSent,setIsSent] = useState(false)
+  const [formData, setFormData] = useState({selectOption:selectedTitle, name: "",email:"", message: "", });
   // Use useEffect to update selectedOption when selectedTitle changes
   useEffect(() => {
-    setSelectedOption(selectedTitle)
-  }, [selectedTitle])
-
-  const videoUrl = data?.strapiFormimage?.video?.localFile?.publicURL
+    setSelectedOption(selectedTitle);
+    setFormData({...formData, selectOption:selectedTitle})
+  }, [selectedTitle]);
+  const handlerInput = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const videoUrl = data?.strapiFormimage?.video?.localFile?.publicURL;
 
   if (!videoUrl) {
-    return <div>Error: Video URL not found!</div>
+    return <div>Error: Video URL not found!</div>;
   }
 
   // Handler function for the radio button change event
   const handleRadioChange = (event) => {
-    console.log(`Radio button clicked: ${event.target.value}`)
-    setSelectedOption(event.target.value)
-  }
+    console.log(`Radio button clicked: ${event.target.value}`);
+    setSelectedOption(event.target.value);
+    setFormData({ ...formData, selectOption: event.target.value })
+    
+    
+  };
+
+  const handleSubmit = () => {
+  setIsSent(false)
+  setFormData({
+    selectOptions: '',
+    name: '',
+    email: '',
+    message: ''
+  });
+  
+    axios
+      .post(
+        "https://getform.io/f/nelzRjbK",
+        formData,
+        { headers: { Accept: "application/json" } }
+      )
+      .then((response) => {
+      setIsSent(true)
+        setSuccessMessage("Your request submitted. Thanks!");
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
+  };
+  
 
   return (
-    <SectionBookContainer id='section-book'>
+    <SectionBookContainer id="section-book">
       <BgVideo>
         <BgVideoContent
           autoPlay
           muted
           loop
-          onLoadedData={() => console.log('Book Video Loaded')}
-          onError={() => console.log('Book Video Failed to Load')}
+          onLoadedData={() => console.log("Book Video Loaded")}
+          onError={() => console.log("Book Video Failed to Load")}
         >
-          <source
-            src={videoUrl}
-            type='video/mp4'
-          />
+          <source src={videoUrl} type="video/mp4" />
           Your browser is not supported!
         </BgVideoContent>
       </BgVideo>
@@ -76,130 +106,134 @@ const SectionBook = ({ selectedTitle }) => {
         <FormContainer>
           <BookH2>Kontakta oss</BookH2>
           <form
-          className='p-10'
-            method='post'
-            action='http://www.skitrent.se/cgi-bin/FormMail.pl'
-            acceptCharset='ISO-8859-1'
+            className="p-10"
+            method="post"
+            action="http://www.skitrent.se/cgi-bin/FormMail.pl"
+            acceptCharset="ISO-8859-1"
             onSubmit={(e) => {
-              const originalCharset = document.charset
-              document.charset = 'ISO-8859-1'
+              const originalCharset = document.charset;
+              document.charset = "ISO-8859-1";
               window.onbeforeunload = function () {
-                document.charset = originalCharset
-              }
+                document.charset = originalCharset;
+              };
             }}
           >
-            <div style={{ ...FormElement.style, display: 'flex', gap: '40px' }}>
+            <div style={{ ...FormElement.style, display: "flex", gap: "40px" }}>
               <RadioButtonLabel>
                 <RadioButtonInput
-                  type='radio'
-                  name='option'
-                  value='HR'
-                  id='hr'
-                  checked={selectedOption === 'HR'}
+                  type="radio"
+                  name="option"
+                  value="HR"
+                  id="hr"
+                  checked={selectedOption === "HR"}
                   onChange={handleRadioChange}
                 />
-                <label htmlFor='hr'>HR</label>
+                <label htmlFor="hr">HR</label>
               </RadioButtonLabel>
               <RadioButtonLabel>
                 <RadioButtonInput
-                  type='radio'
-                  name='option'
-                  value='Redovisning'
-                  id='redovisning'
+                  type="radio"
+                  name="option"
+                  value="Redovisning"
+                  id="redovisning"
                   onChange={handleRadioChange}
-                  checked={selectedOption === 'Redovisning'}
+                  checked={selectedOption === "Redovisning"}
                 />
-                <label htmlFor='redovisning'>Redovisning</label>
+                <label htmlFor="redovisning">Redovisning</label>
               </RadioButtonLabel>
             </div>
-            <div style={{ ...FormElement.style, display: 'flex', gap: '40px' }}>
+            <div style={{ ...FormElement.style, display: "flex", gap: "40px" }}>
               <RadioButtonLabel>
                 <RadioButtonInput
-                  type='radio'
-                  name='option'
-                  value='Lön'
-                  id='lon'
+                  type="radio"
+                  name="option"
+                  value="Lön"
+                  id="lon"
                   onChange={handleRadioChange}
-                  checked={selectedOption === 'Lön'}
+                  checked={selectedOption === "Lön"}
                 />
-                <label htmlFor='lon'>Lön</label>
+                <label htmlFor="lon">Lön</label>
               </RadioButtonLabel>
               <RadioButtonLabel>
                 <RadioButtonInput
-                  type='radio'
-                  name='option'
-                  value='Rekrytering'
-                  id='rekrytering'
+                  type="radio"
+                  name="option"
+                  value="Rekrytering"
+                  id="rekrytering"
                   onChange={handleRadioChange}
-                  checked={selectedOption === 'Rekrytering'}
+                  checked={selectedOption === "Rekrytering"}
                 />
-                <label htmlFor='rekrytering'>Rekrytering</label>
+                <label htmlFor="rekrytering">Rekrytering</label>
               </RadioButtonLabel>
             </div>
             <div style={FormElement.style}>
               <FormInput
-                type='text'
-                name='name'
-                id='name'
+                type="text"
+                name="name"
+                id="name"
                 required
-                placeholder='För och efternamn'
+                value={formData.name}
+                placeholder="För och efternamn"
+                onChange={(e) => handlerInput(e)}
               />
             </div>
             <div style={FormElement.style}>
               <FormInput
-                type='email'
-                name='email'
-                id='email'
+                type="email"
+                name="email"
+                id="email"
+                value={formData.email}
                 required
-                placeholder='Epost-adress'
+                placeholder="Epost-adress"
+                onChange={(e) => handlerInput(e)}
               />
             </div>
             <div style={FormElement.style}>
               <FormTextArea
-                name='message'
-                id='message'
+                name="message"
+                id="message"
                 required
-                cols='30'
-                rows='5'
+                cols="30"
+                value={formData.message}
+                onChange={(e) => handlerInput(e)}
+                rows="5"
                 placeholder={`${
-                  selectedTitle ? selectedTitle + '\n' : ''
+                  selectedTitle ? selectedTitle + "\n" : ""
                 }Skriv ditt meddelande...`}
               />
             </div>
-            <ButtonStyles>Sänd</ButtonStyles>
+            <ButtonStyles onClick={() => handleSubmit()}>Sänd</ButtonStyles>
+           {isSent ?   <div>{sucessMessage}</div> : null}
 
             {/* Hidden Inputs */}
+            <input type="hidden" name="recipient" value="kontakt@skitrent.se" />
             <input
-              type='hidden'
-              name='recipient'
-              value='kontakt@skitrent.se'
+              type="hidden"
+              name="subject"
+              id="subject"
+              value={selectedTitle ? selectedTitle : ""}
             />
             <input
-              type='hidden'
-              name='subject'
-              id='subject'
-              value={selectedTitle ? selectedTitle : ''}
+              type="hidden"
+              name="redirect"
+              value="http://tahwil.se/sohail/skitrent/tack.html"
             />
             <input
-              type='hidden'
-              name='redirect'
-              value='http://tahwil.se/sohail/skitrent/tack.html'
+              type="hidden"
+              name="missing_fields_redirect"
+              value="http://tahwil.se/sohail/skitrent/fel.html"
             />
             <input
-              type='hidden'
-              name='missing_fields_redirect'
-              value='http://tahwil.se/sohail/skitrent/fel.html'
-            />
-            <input
-              type='hidden'
-              name='required'
-              value='realname,email,Message,subject'
+              type="hidden"
+              name="required"
+              value="realname,email,Message,subject"
             />
           </form>
+        
         </FormContainer>
       </Container>
     </SectionBookContainer>
-  )
-}
+  );
+};
 
-export default SectionBook
+export default SectionBook;
