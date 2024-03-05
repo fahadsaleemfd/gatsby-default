@@ -16,9 +16,9 @@ import {
 } from "./SectionBookStyles";
 
 import ButtonStyles from "../styles/ButtonStyles";
-import axios from 'axios'
+import axios from "axios";
 
-const SectionBook = ({ selectedTitle }) => {
+const SectionBook = ({ selectedTitle, radioButtonTitle }) => {
   const data = useStaticQuery(graphql`
     query {
       strapiFormimage {
@@ -37,16 +37,28 @@ const SectionBook = ({ selectedTitle }) => {
   `);
 
   // Initialize a state variable to store the selected radio button value
-  const [selectedOption, setSelectedOption] = useState(selectedTitle);
-  const [sucessMessage,setSuccessMessage] = useState("Your Request has been submitted")
-  const [isSent,setIsSent] = useState(false)
-  const [formData, setFormData] = useState({selectOption:selectedTitle, name: "",email:"", message: "", });
+  const [selectedOption, setSelectedOption] = useState(radioButtonTitle);
+  const [sucessMessage, setSuccessMessage] = useState(
+    "Your Request has been submitted"
+  );
+  const [isSent, setIsSent] = useState(false);
+  const [formData, setFormData] = useState({
+    selectOption: selectedTitle,
+    name: "",
+    email: "",
+    message: selectedTitle,
+  });
   // Use useEffect to update selectedOption when selectedTitle changes
   useEffect(() => {
-    setSelectedOption(selectedTitle);
-    setFormData({...formData, selectOption:selectedTitle})
-  }, [selectedTitle]);
+    setSelectedOption(radioButtonTitle);
+    setFormData({
+      ...formData,
+      selectOption: radioButtonTitle,
+      message: selectedTitle,
+    });
+  }, [selectedTitle, radioButtonTitle]);
   const handlerInput = (e) => {
+    console.log(e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const videoUrl = data?.strapiFormimage?.video?.localFile?.publicURL;
@@ -59,34 +71,41 @@ const SectionBook = ({ selectedTitle }) => {
   const handleRadioChange = (event) => {
     console.log(`Radio button clicked: ${event.target.value}`);
     setSelectedOption(event.target.value);
-    setFormData({ ...formData, selectOption: event.target.value })
-    
-    
+    setFormData({ ...formData, selectOption: event.target.value });
   };
 
   const handleSubmit = () => {
-  setIsSent(false)
-  setFormData({
-    selectOptions: '',
-    name: '',
-    email: '',
-    message: ''
-  });
-  
+    if (formData.selectOption == "" || formData.selectOption == null) {
+      alert("Please select an option");
+      return;
+    } else if (formData.name == "") {
+      alert("Please enter name");
+      return;
+    } else if (formData.email == "") {
+      alert("Please enter your email");
+      return;
+    } else if (formData.message == "" || formData.message == null) {
+      alert("Please enter your message");
+      return;
+    }
+
     axios
-      .post(
-        "https://getform.io/f/nelzRjbK",
-        formData,
-        { headers: { Accept: "application/json" } }
-      )
+      .post("https://getform.io/f/nelzRjbK", formData, {
+        headers: { Accept: "application/json" },
+      })
       .then((response) => {
-      setIsSent(true)
-        setSuccessMessage("Your request submitted. Thanks!");
+        setIsSent(true);
+        alert("Your form is submitted");
+        setFormData({
+          selectOptions: "",
+          name: "",
+          email: "",
+          message: "",
+        });
         console.log(response);
       })
       .catch((error) => console.log(error));
   };
-  
 
   return (
     <SectionBookContainer id="section-book">
@@ -197,13 +216,13 @@ const SectionBook = ({ selectedTitle }) => {
                 value={formData.message}
                 onChange={(e) => handlerInput(e)}
                 rows="5"
-                placeholder={`${
-                  selectedTitle ? selectedTitle + "\n" : ""
-                }Skriv ditt meddelande...`}
+                // value={`${
+                //   selectedTitle ? selectedTitle + "\n" : ""
+                // }Skriv ditt meddelande...`}
               />
             </div>
             <ButtonStyles onClick={() => handleSubmit()}>Sänd</ButtonStyles>
-           {isSent ?   <div>{sucessMessage}</div> : null}
+            {isSent ? <div>{sucessMessage}</div> : null}
 
             {/* Hidden Inputs */}
             <input type="hidden" name="recipient" value="kontakt@skitrent.se" />
@@ -229,7 +248,6 @@ const SectionBook = ({ selectedTitle }) => {
               value="realname,email,Message,subject"
             />
           </form>
-        
         </FormContainer>
       </Container>
     </SectionBookContainer>

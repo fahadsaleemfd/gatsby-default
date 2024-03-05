@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const MainContainer = styled.div`
-margin-top:30px;
+margin-top:70px;
   transform: skewY(-7deg);
    padding: 5rem;
   position: relative;

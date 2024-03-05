@@ -14,7 +14,7 @@ import { UMarginBottomSmall, UMarginBottomBig } from '../styles/UMarginsStyles'
 import ButtonStyles from '../styles/ButtonStyles'
 import { StoryH2 } from '../Story/SectionStoriesStyles'
 
-const SectionFeatures = ({ setSelectedTitle }) => {
+const SectionFeatures = ({ setRadioTitleOption }) => {
   const data = useStaticQuery(graphql`
     query {
       allStrapiService {
@@ -69,11 +69,17 @@ const SectionFeatures = ({ setSelectedTitle }) => {
       {/* Pass the title to SectionBook */}
       {/* <SectionBook selectedTitle={node.title} /> */}
       <ButtonStyles
-        href='#section-book'
-        onClick={() => setSelectedTitle(node.title)}
-      >
-        Beställ
-      </ButtonStyles>
+  // href="#section-book"
+  onClick={() => {
+    
+    setRadioTitleOption(node.title)
+
+    console.log(node.title);
+  }}
+>
+  Beställ
+</ButtonStyles>
+
     </Card>
   ))
 
