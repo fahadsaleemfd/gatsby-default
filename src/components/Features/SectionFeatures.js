@@ -69,7 +69,7 @@ const SectionFeatures = ({ setRadioTitleOption }) => {
       {/* Pass the title to SectionBook */}
       {/* <SectionBook selectedTitle={node.title} /> */}
       <ButtonStyles
-  // href="#section-book"
+  href="#section-book"
   onClick={() => {
     
     setRadioTitleOption(node.title)
