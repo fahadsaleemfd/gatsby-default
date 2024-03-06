@@ -75,10 +75,7 @@ const SectionBook = ({ selectedTitle, radioButtonTitle }) => {
   };
 
   const handleSubmit = () => {
-    if (formData.selectOption == "" || formData.selectOption == null) {
-      alert("Please select an option");
-      return;
-    } else if (formData.name == "") {
+     if (formData.name == "") {
       alert("Please enter name");
       return;
     } else if (formData.email == "") {
