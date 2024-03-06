@@ -109,15 +109,19 @@ export const Background = styled.div`
 `
 
 export const Nav = styled.nav`
-  height: 100vh;
+  height: ${(props) => (props.isChecked ? '100vh' : '0')};
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1500;
   opacity: ${(props) => (props.isChecked ? '1' : '0')};
-  width: ${(props) => (props.isChecked ? '100%' : '0')};
-  transition: opacity 0.8s, width 0.8s;
-`
+  overflow: hidden;
+  width: 100%;
+  transition: opacity 0.8s, height 0.8s;
+
+  // Add conditional rendering
+  ${(props) => !props.isChecked && 'pointer-events: none;'}
+`;
 
 export const List = styled.ul`
   position: absolute;
